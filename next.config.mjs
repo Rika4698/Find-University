@@ -4,11 +4,13 @@ const nextConfig = {
   reactCompiler: true,
 
   images: {
-  domains: ["upload.wikimedia.org"],
-},
-  images: {
-  domains: ["images.unsplash.com"],
-}
+    domains: [
+      "upload.wikimedia.org",
+      "images.unsplash.com",
+      "i.ibb.co.com",
+    ],
+  },
+
 
 
 };
