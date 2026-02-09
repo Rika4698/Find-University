@@ -1,4 +1,5 @@
 import Image from "next/image";
+import SearchBar from "./components/SearchBar";
 
 
 export default async function Page() {
@@ -27,9 +28,10 @@ export default async function Page() {
 
           </h1>
           <p className="text-base md:text-xl text-purple-100 max-w-3xl mx-auto leading-relaxed animate-slide-up delay-200 px-4">Navigate your global education journey with precision. Explore 20+ world-class institutions with specialized filters for safety, satisfaction and career outcomes.</p>
-
+          
+           {/* Search Bar */}
           <div>
-            
+            <SearchBar/>
           </div>
 
         </div>
