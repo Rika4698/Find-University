@@ -30,3 +30,7 @@ export async function getUniqueCountries(){
 
     return countries.sort();
 }
+
+export async function getUniversityById(id) {
+    return universityData.find(u => u.id === id);
+}

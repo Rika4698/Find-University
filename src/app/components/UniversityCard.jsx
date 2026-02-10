@@ -10,7 +10,7 @@ function UniversityCard({ university, onCompare, isSelected, style }) {
             style={style}
             className={clsx(
                 "bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group border flex flex-col h-full animate-slide-up opacity-0 [animation-fill-mode:forwards]",
-                isSelected ? "border-blue-500 ring-2 ring-blue-500/20" : "border-gray-100"
+                isSelected ? "border-purple-500 ring-2 ring-purple-500/20" : "border-gray-100"
             )}
         >
             <Link href={`/universities/${university.id}`} className="h-48 relative overflow-hidden block">
@@ -23,12 +23,12 @@ function UniversityCard({ university, onCompare, isSelected, style }) {
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-500" />
 
                 {isSelected && (
-                    <div className="absolute inset-0 bg-blue-600/20 flex items-center justify-center animate-fade-in">
+                    <div className="absolute inset-0 bg-purple-600/20 flex items-center justify-center animate-fade-in">
                         <CheckCircle className="w-12 h-12 text-white drop-shadow-lg" />
                     </div>
                 )}
                 <div className="absolute top-4 right-4">
-                    <span className="bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-blue-900 shadow-sm">
+                    <span className="bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-purple-900 shadow-sm">
                         Rank #{university.ranking}
                     </span>
                 </div>
@@ -46,7 +46,7 @@ function UniversityCard({ university, onCompare, isSelected, style }) {
                 </div>
 
                 <div className="grid grid-cols-2 gap-y-3 gap-x-2 text-sm mb-6">
-                    <div className="flex items-center text-gray-700 bg-gray-50 p-2 rounded-lg">
+                    <div title='Tuition' className="flex items-center text-gray-700 bg-gray-50 p-2 rounded-lg">
                         <Banknote className="w-4 h-4 mr-2 text-green-600" />
                         <span className="font-semibold">${university.tuition.toLocaleString()}</span>
                     </div>
@@ -58,7 +58,7 @@ function UniversityCard({ university, onCompare, isSelected, style }) {
                         <GraduationCap className="w-4 h-4 mr-2 text-purple-600" />
                         <span className="font-semibold">{university.studentSatisfaction} \u2605</span>
                     </div>
-                    <div className="flex items-center text-gray-700 bg-gray-50 p-2 rounded-lg">
+                    <div title='Established' className="flex items-center text-gray-700 bg-gray-50 p-2 rounded-lg">
                         <Trophy className="w-4 h-4 mr-2 text-yellow-600" />
                         <span className="font-semibold">Est. {university.established}</span>
                     </div>
@@ -72,7 +72,7 @@ function UniversityCard({ university, onCompare, isSelected, style }) {
                         )}>
                             {university.scholarship ? "Scholarships" : "No Scholarship"}
                         </span>
-                        <div className="text-[10px] text-gray-400 font-medium">
+                        <div title='Post Study Work' className="text-[10px] text-gray-400 font-medium">
                             {university.postStudyWork}
                         </div>
                     </div>
@@ -90,8 +90,8 @@ function UniversityCard({ university, onCompare, isSelected, style }) {
                             className={clsx(
                                 "px-4 py-2 rounded-xl text-xs font-bold transition-all transform active:scale-95 border",
                                 isSelected
-                                    ? "bg-blue-600 text-white shadow-lg shadow-blue-200 border-blue-600"
-                                    : "bg-white text-blue-600 border-blue-100 hover:border-blue-600"
+                                    ? "bg-purple-600 text-white shadow-lg shadow-blue-200 border-purple-600"
+                                    : "bg-white text-purple-600 border-blue-100 hover:border-purple-600"
                             )}
                         >
                             {isSelected ? "Selected" : "Compare"}
