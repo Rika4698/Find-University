@@ -22,6 +22,32 @@ export const metadata = {
    keywords: ["study abroad", "university finder", "global rankings", "compare universities", "scholarships", "international students"],
   authors: [{ name: "UniFinder Team" }],
   creator: "UniFinder",
+    metadataBase: new URL("https://find-university.vercel.app/"),
+    openGraph: {
+        title: "UniFinder | Find Your Dream University",
+        description: "Compare world-class institutions side-by-side with innovative data-driven filters.",
+        url: "https://find-university.vercel.app/",
+        siteName: "UniFinder",
+        images: [
+            {
+                url: "/og-image.jpg",
+                width: 1200,
+                height: 630,
+            },
+        ],
+        locale: "en_US",
+        type: "website",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "UniFinder | Find Your Dream University",
+        description: "Compare world-class institutions side-by-side.",
+        images: ["/og-image.jpg"],
+    },
+    robots: {
+        index: true,
+        follow: true,
+    },
 };
 
 export default function RootLayout({ children }) {

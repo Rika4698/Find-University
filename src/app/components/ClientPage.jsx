@@ -55,12 +55,12 @@ function ClientPage({universities, totalPages, currentPage, total}) {
         <div>
             <div className='grid grid-cols-1 sm:grid-cols-2  lg:grid-cols-3 gap-6'>
                {universities.map((university, index) => {
-                    const displayRank = (currentPage - 1) * 12 + index + 1;
+                    
                     return (
                         <UniversityCard
                             key={university.id}
                             university={university}
-                            displayRank={displayRank}
+                            
                             onCompare={toggleCompare}
                             isSelected={compareList.some(u => u.id === university.id)}
                             style={{ animationDelay: `${index * 50}ms` }}

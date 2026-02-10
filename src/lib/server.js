@@ -53,6 +53,11 @@ export async function getUniversities(filters = {}) {
         filtered = filtered.filter((u) => u.scholarship === true);
     }
 
+    if (filters.maxRanking !== undefined) {
+    filtered = filtered.sort((a, b) => a.ranking - b.ranking);
+  }
+
+
      const page = filters.page || 1;
     const limit = filters.limit || 12;
     const startIndex = (page - 1) * limit;
