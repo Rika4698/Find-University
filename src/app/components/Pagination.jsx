@@ -41,7 +41,7 @@ export default function Pagination({ totalPages, currentPage }) {
                     className={clsx(
                         "w-10 h-10 rounded-lg font-bold transition-all",
                         currentPage === page
-                            ? "bg-blue-600 text-white shadow-lg shadow-blue-200"
+                            ? "bg-purple-600 text-white shadow-lg shadow-blue-200"
                             : "text-gray-600 hover:bg-gray-50 border border-transparent hover:border-gray-200"
                     )}
                 >
@@ -52,7 +52,7 @@ export default function Pagination({ totalPages, currentPage }) {
             <button
                 onClick={() => handlePageChange(currentPage + 1)}
                 disabled={currentPage === totalPages}
-                className="p-2 rounded-lg border border-gray-200 text-gray-600 disabled:opacity-30 hover:bg-gray-50 transition-colors disabled:cursor-not-allowed"
+                className="p-2 rounded-lg border border-gray-200  text-gray-600 disabled:opacity-30 hover:bg-gray-50 transition-colors disabled:cursor-not-allowed"
                 aria-label="Next page"
             >
                 <ChevronRight className="w-5 h-5" />

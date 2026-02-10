@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { MapPin, GraduationCap, Trophy, ShieldCheck, Banknote, CheckCircle, ExternalLink } from "lucide-react";
 import Image from 'next/image';
 
-function UniversityCard({ university, onCompare, isSelected, style }) {
+function UniversityCard({ university, displayRank, onCompare, isSelected, style }) {
     return (
        <div
             style={style}
@@ -29,7 +29,7 @@ function UniversityCard({ university, onCompare, isSelected, style }) {
                 )}
                 <div className="absolute top-4 right-4">
                     <span className="bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-purple-900 shadow-sm">
-                        Rank #{university.ranking}
+                        Rank #{displayRank}
                     </span>
                 </div>
              

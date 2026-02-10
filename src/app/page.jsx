@@ -5,9 +5,24 @@ import { getUniqueCountries, getUniversities } from "@/lib/server";
 import ClientPage from "./components/ClientPage";
 
 
-export default async function Page() {
+export default async function Page({ searchParams }) {
+   const params = (await searchParams) || {};
 
- const { universities, total, totalPages, currentPage } = await getUniversities();
+     const filters = {
+        search: typeof params.search === 'string' ? params.search : undefined,
+        country: typeof params.country === 'string' ? [params.country] : Array.isArray(params.country) ? params.country : undefined,
+        minTuition: params.minTuition ? Number(params.minTuition) : undefined,
+        maxTuition: params.maxTuition ? Number(params.maxTuition) : undefined,
+        maxRanking: params.maxRanking ? Number(params.maxRanking) : undefined,
+        minSafetyIndex: params.minSafetyIndex ? Number(params.minSafetyIndex) : undefined,
+        minSatisfaction: params.minSatisfaction ? Number(params.minSatisfaction) : undefined,
+        minYear: params.minYear ? Number(params.minYear) : undefined,
+        maxYear: params.maxYear ? Number(params.maxYear) : undefined,
+        scholarship: params.scholarship === 'true',
+        page: params.page ? Number(params.page) : 1,
+    };
+
+ const { universities, total, totalPages, currentPage } = await getUniversities(filters);
   const countries = await getUniqueCountries();
   return (
     <div className="bg-gray-50 pb-12 overflow-x-hidden">
@@ -33,11 +48,11 @@ export default async function Page() {
           <h1 className="text-4xl md:text-7xl font-extrabold tracking-tight leading-[1.1] animate-slide-up delay-100"> Find the <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-violet-300">Perfect University</span> <br className="hidden md:block"/> for Your Future
 
           </h1>
-          <p className="text-base md:text-xl text-purple-100 max-w-3xl mx-auto leading-relaxed animate-slide-up delay-200 px-4">Navigate your global education journey with precision. Explore {total - 3}+ world-class institutions with specialized filters for safety, satisfaction and career outcomes.</p>
+          <p className="text-base md:text-xl text-purple-100 max-w-3xl mx-auto leading-relaxed animate-slide-up delay-200 px-4">Navigate your global education journey with precision. Explore 17+ world-class institutions with specialized filters for safety, satisfaction and career outcomes.</p>
 
            {/* Search Bar */}
           <div>
-            <SearchBar/>
+            <SearchBar defaultValue={params.search}/>
           </div>
 
         </div>
@@ -61,6 +76,7 @@ export default async function Page() {
                         universities={universities}
                         totalPages={totalPages}
                         currentPage={currentPage}
+                        total={total}
                     />
                 </div>
       </div>

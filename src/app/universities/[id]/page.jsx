@@ -22,7 +22,7 @@ export default async function UniversityDetails({ params }) {
                     src={university.image}
                     alt={university.name}
                     width={700} height={700}
-                    className="w-full h-full object-cover animate-fade-in"
+                    className="w-full h-full  animate-fade-in"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent" />
 
